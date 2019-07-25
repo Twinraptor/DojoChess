@@ -14,9 +14,19 @@
 		<h2>List of games:</h2>
 	</div>
 	<div id="addgame">
-		<form id="newgame">
-		
-		</form>
+		<form:form action="/games/add" method="post" modelAttribute="game">
+			<p>
+            	<form:label path="title">Title:</form:label>
+            	<form:errors path="title" />
+            	<form:input path="title"/>
+        	</p>
+			<p>
+            	<form:label path="location">Location:</form:label>
+            	<form:errors path="location" />
+            	<form:input path="location"/>
+        	</p>
+        <input type="submit" value="Create"/>
+		</form:form>
 	</div>
 </body>
 </html>
