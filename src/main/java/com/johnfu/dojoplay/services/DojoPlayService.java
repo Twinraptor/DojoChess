@@ -10,15 +10,18 @@ import org.springframework.stereotype.Service;
 
 
 import com.johnfu.dojoplay.models.User;
-
+import com.johnfu.dojoplay.models.Game;
 import com.johnfu.dojoplay.repositories.UserRepository;
+import com.johnfu.dojoplay.repositories.GameRepository;
 
 
 @Service
 public class DojoPlayService {
 	private final UserRepository userRepository;
-	public DojoPlayService(UserRepository userRepository) {
+	private final GameRepository gameRepository;
+	public DojoPlayService(UserRepository userRepository, GameRepository gameRepository) {
 		this.userRepository=userRepository;
+		this.gameRepository=gameRepository;
 	}
     // register user and hash their password
     public User registerUser(User user) {
@@ -57,5 +60,9 @@ public class DojoPlayService {
                 return false;
             }
         }
+    }
+    
+    public Game addGame(Game game) {
+    	return gameRepository.save(game);
     }
 }

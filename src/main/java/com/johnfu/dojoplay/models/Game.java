@@ -22,7 +22,10 @@ public class Game {
     private Long id;
     @Size (min=2, message="Name must be greater than 2 characters")
     private String title;
+    @Size (min=2, message="Location must be greater than 2 characters")
     private String location;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date edate;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")

@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 
-
+import com.johnfu.dojoplay.models.Game;
 import com.johnfu.dojoplay.models.User;
 import com.johnfu.dojoplay.services.DojoPlayService;
 import com.johnfu.dojoplay.validator.UserValidator;
@@ -65,5 +65,10 @@ public class DojoPlayController {
 	@RequestMapping("/games")
 	public String home(Model model,HttpSession session) {
 	    return "index.jsp";
+	}
+	@RequestMapping(value="/games/add", method=RequestMethod.POST)
+	public String addGame(@Valid @ModelAttribute("game") Game game, BindingResult result) {
+		Game g = DojoPlayService.addGame(game);
+		return "redirect:/games";
 	}
 }
