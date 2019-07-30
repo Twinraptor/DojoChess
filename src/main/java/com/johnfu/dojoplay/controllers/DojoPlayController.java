@@ -63,7 +63,7 @@ public class DojoPlayController {
 	    }
     }
 	@RequestMapping("/games")
-	public String home(Model model,HttpSession session) {
+	public String home(Model model,HttpSession session, @ModelAttribute("game") Game game) {
 	    return "index.jsp";
 	}
 	@RequestMapping(value="/games/add", method=RequestMethod.POST)
