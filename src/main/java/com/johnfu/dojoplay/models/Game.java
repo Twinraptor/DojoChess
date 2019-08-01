@@ -1,4 +1,5 @@
 package com.johnfu.dojoplay.models;
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class Game {
     private String location;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date edate;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
@@ -37,6 +38,9 @@ public class Game {
     @JoinColumn(name="user_id")
     private User user;
     
+
+	public Game() {
+    }
     
     public User getUser() {
 		return user;
@@ -46,10 +50,6 @@ public class Game {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-
-	public Game() {
-    }
 
 
 	public Long getId() {

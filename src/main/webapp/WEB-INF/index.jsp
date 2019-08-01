@@ -14,7 +14,11 @@
 		<h2>List of games:</h2>
 	</div>
 	<div id="addgame">
+	<h2>Set up a Game:</h2>
 		<form:form action="/games/add" method="post" modelAttribute="game">
+			<p>
+				<form:input type="hidden" path="user" value="${userId.id}" />
+			</p>
 			<p>
             	<form:label path="title">Title:</form:label>
             	<form:errors path="title" />
@@ -25,6 +29,10 @@
             	<form:errors path="location" />
             	<form:input path="location"/>
         	</p>
+        	<p>
+        		<form:label path="edate">Date:</form:label>
+        		<form:input type="date" path="edate"/>
+    		</p>
         <input type="submit" value="Create"/>
 		</form:form>
 	</div>
